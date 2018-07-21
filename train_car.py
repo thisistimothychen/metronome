@@ -14,11 +14,9 @@ from socketIO_client import SocketIO, LoggingNamespace
 firebase = firebase.FirebaseApplication('https://metronome-nyc.firebaseio.com', None)
 camera = picamera.PiCamera()
 picotts = PicoTTS()
-wavs = picotts.synth_wav('Stay clear of the closing doors, please.')
-wav = wave.open(StringIO.StringIO(wavs)) 
 
-SERVER = '127.0.0.1'
-PORT = 5000
+SERVER = 'api.memeboard.net'
+PORT = 80
 TRAIN_ID = 10011
 CAR_ID = 0
 
@@ -27,7 +25,9 @@ STATION_LIST = [0,1,2,3]
 station_index = 1
 
 def playSound():
-    global wav
+    global picotts
+    wavs = picotts.synth_wav('Stand clear of the closing doors please.');
+    wav = wave.open(StringIO.StringIO(wavs))
     p = pyaudio.PyAudio()  
     stream = p.open(format = p.get_format_from_width(wav.getsampwidth()),  
                     channels = wav.getnchannels(),  
