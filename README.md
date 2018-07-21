@@ -27,14 +27,3 @@ We used socket.io to trigger the Pi code that took pictures, which would then tr
 ![Raspberry Pi's](img/platform-pi-setup.png)
 
 On the platform (simulated via a Raspberry Pi with LEDs), we continually pull and parse data from Firebase to determine what colors to display on each LED.
-
-
-## Development
-
-Install the following python requirements (you can use virtualenv):
-```
-sudo pip install requests
-sudo pip install python-firebase
-sudo pip install flask
-sudo pip install flask_socketio
-```
