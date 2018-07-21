@@ -17,7 +17,7 @@ def status():
 def simulator():
     return render_template('simulator.html')
 
-def get_most_recent_cars():
+def get_most_recent_cars():    
     cars = {}
     all_history = firebase.get('/history', None)
 
